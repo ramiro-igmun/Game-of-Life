@@ -18,7 +18,7 @@ public class Panel extends JPanel {
   public Panel(Board board) {
     this.board = board;
     this.size = board.getBoardSize();
-    this.cellSize = 10;
+    this.cellSize = 5;
     super.setPreferredSize(new Dimension(size * cellSize, size * cellSize));
   }
   

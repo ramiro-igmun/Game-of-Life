@@ -3,7 +3,7 @@ package igmun.ramiro.gameoflife;
 public class Generations {
 
   /*
-  This is the main algorithm. It takes the current board satate and iterates 
+  This is the main algorithm. It takes the current board state and iterates
   through all the cells checking its neighbor cells, to determine if each cell
   should be alive or dead in the next generation
    */
