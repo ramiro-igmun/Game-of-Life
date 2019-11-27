@@ -1,28 +1,30 @@
 package igmun.ramiro.gameoflife;
 
-public class Generations {
+import igmun.ramiro.gameoflife.boards.Board;
+
+public class Generation {
 
   /*
   This is the main algorithm. It takes the current board state and iterates
   through all the cells checking its neighbor cells, to determine if each cell
   should be alive or dead in the next generation
    */
-  public static void evolve(Board board) {
+  public void evolve(Board board) {
     int size = board.getBoardSize();
     int aliveNumber = 0;
-    boolean isAlive = true;
-    boolean isDead = false;
 
     Boolean[][] boardState = board.getBoardState();
     Boolean[][] newBoardState = new Boolean[size][size];
 
     for (int i = 0; i <= size - 1; i++) {
       for (int j = 0; j <= size - 1; j++) {
-        int neighbors = GetNumberOfNeighbors(i, j, size, boardState);
+        int neighbors = getNumberOfNeighbors(i, j, size, boardState);
         if (neighbors < 2 || neighbors > 3) {
-          newBoardState[i][j] = isDead;
+          // Always is false
+          newBoardState[i][j] = false;
         } else if (neighbors == 3) {
-          newBoardState[i][j] = isAlive;
+          // Always is true
+          newBoardState[i][j] = true;
           aliveNumber++;
         } else {
           newBoardState[i][j] = boardState[i][j];
@@ -39,7 +41,8 @@ public class Generations {
   This method returns the number of living neighbors for each cell in the board.
   It iterates through the sub-matrix of the eight neighbors around the given cell
    */
-  private static int GetNumberOfNeighbors(int i, int j, int size, Boolean[][] boardState) {
+  private int getNumberOfNeighbors(int i, int j, int size, Boolean[][] boardState) {
+    // TODO Refactor to use words identifiers
     int numberOfNeighbors = 0;
     int x;
     int y;
