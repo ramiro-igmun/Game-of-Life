@@ -1,5 +1,6 @@
+package igmun.ramiro.gameoflife.panels;
 
-package igmun.ramiro.gameoflife;
+import igmun.ramiro.gameoflife.boards.Board;
 
 import java.awt.Color;
 import java.awt.Dimension;

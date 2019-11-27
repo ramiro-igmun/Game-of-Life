@@ -1,11 +1,14 @@
-package igmun.ramiro.gameoflife;
+package igmun.ramiro.gameoflife.boards;
+
+import lombok.Data;
 
 import java.util.Random;
 
+@Data
 public class Board {
   private Boolean[][] board;
   private int boardSize;
-  private int generationsPased; 
+  private int generationsPassed;
   private int aliveNumber;
 
   public Board() {
@@ -49,11 +52,11 @@ public class Board {
   }
 
   public void advanceGeneration() {
-    generationsPased++;
+    generationsPassed++;
   }
 
   public int getGenerationsPassed() {
-    return generationsPased;
+    return generationsPassed;
   }
 
   public int getAliveNumber() {
@@ -61,7 +64,7 @@ public class Board {
   }
 
   public void setGenerationNumber(int generationNumber) {
-    this.generationsPased = generationNumber;
+    this.generationsPassed = generationNumber;
   }
     
 }
