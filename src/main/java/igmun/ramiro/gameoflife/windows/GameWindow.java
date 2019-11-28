@@ -1,11 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package igmun.ramiro.gameoflife;
+package igmun.ramiro.gameoflife.windows;
 
-import java.awt.event.ActionEvent;
+import igmun.ramiro.gameoflife.boards.Board;
+import igmun.ramiro.gameoflife.panels.Panel;
+import igmun.ramiro.gameoflife.controllers.Controller;
+
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -26,7 +24,6 @@ public class GameWindow {
   private JFrame window;
   private JLabel generationText;
   private JLabel aliveText;
-  private JPanel menu;
   private JTextField size;
   private JTextField generations;
 
@@ -67,7 +64,7 @@ public class GameWindow {
     panel = new Panel(board);
     window.add(panel);
 
-    menu = new JPanel();
+    JPanel menu = new JPanel();
     window.add(menu);
 
     menu.add(new JLabel("Size"));
