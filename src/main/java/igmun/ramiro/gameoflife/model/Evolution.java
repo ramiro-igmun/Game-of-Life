@@ -6,7 +6,7 @@ public class Evolution {
   This is the main algorithm. It takes the current board state and iterates
   through all the cells checking its neighbor cells, to determine if each cell
   should be alive or dead in the next generation
-   */
+  */
   public void evolve(Board board) {
     int size = board.getBoardSize();
     int aliveNumber = 0;
@@ -14,17 +14,17 @@ public class Evolution {
     Boolean[][] boardState = board.getBoardState();
     Boolean[][] newBoardState = new Boolean[size][size];
 
-    for (int i = 0; i <= size - 1; i++) {
-      for (int j = 0; j <= size - 1; j++) {
-        int neighbors = getNumberOfNeighbors(i, j, size, boardState);
+    for (int row = 0; row <= size - 1; row++) {
+      for (int column = 0; column <= size - 1; column++) {
+        int neighbors = getNumberOfNeighbors(row, column, size, boardState);
         if (neighbors < 2 || neighbors > 3) {
-          newBoardState[i][j] = false;
+          newBoardState[row][column] = false;
         } else if (neighbors == 3) {
-          newBoardState[i][j] = true;
+          newBoardState[row][column] = true;
           aliveNumber++;
         } else {
-          newBoardState[i][j] = boardState[i][j];
-          aliveNumber = boardState[i][j] ? aliveNumber + 1 : aliveNumber;
+          newBoardState[row][column] = boardState[row][column];
+          aliveNumber = boardState[row][column] ? aliveNumber + 1 : aliveNumber;
         }
       }
     }
@@ -37,29 +37,32 @@ public class Evolution {
   This method returns the number of living neighbors for each cell in the board.
   It iterates through the sub-matrix of the eight neighbors around the given cell
    */
-  private int getNumberOfNeighbors(int i, int j, int size, Boolean[][] boardState) {
-    // TODO Refactor to use words identifiers
+  private int getNumberOfNeighbors(int row, int column, int size, Boolean[][] boardState) {
     int numberOfNeighbors = 0;
-    int x;
-    int y;
-    for (int k = i - 1; k <= i + 1; k++) {
-      for (int m = j - 1; m <= j + 1; m++) {
-        x = k;
-        y = m;
-        if (k < 0 || k > size - 1) {
-          x = k < 0 ? size - 1 : 0;
+    int correctedRow;
+    int correctedColumn;
+    for (int submatrixRow = row - 1; submatrixRow <= row + 1; submatrixRow++) {
+      for (int submatrixColumn = column - 1; submatrixColumn <= column + 1; submatrixColumn++) {
+        correctedRow = submatrixRow;
+        correctedColumn = submatrixColumn;
+        if (isOutOfRange(size, submatrixRow)) {
+          correctedRow = submatrixRow < 0 ? size - 1 : 0;
         }
 
-        if (m < 0 || m > size - 1) {
-          y = m < 0 ? size - 1 : 0;
+        if (isOutOfRange(size, submatrixColumn)) {
+          correctedColumn = submatrixColumn < 0 ? size - 1 : 0;
         }
 
-        if (boardState[x][y] && !(x == i && y == j)) {
+        if (boardState[correctedRow][correctedColumn] && !(correctedRow == row && correctedColumn == column)) {
           numberOfNeighbors++;
         }
       }
     }
     return numberOfNeighbors;
+  }
+
+  private boolean isOutOfRange(int size, int index) {
+    return index < 0 || index > size - 1;
   }
 
 }
