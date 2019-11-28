@@ -1,8 +1,6 @@
-package igmun.ramiro.gameoflife;
+package igmun.ramiro.gameoflife.model;
 
-import igmun.ramiro.gameoflife.boards.Board;
-
-public class Generation {
+public class Evolution {
 
   /*
   This is the main algorithm. It takes the current board state and iterates
@@ -20,10 +18,8 @@ public class Generation {
       for (int j = 0; j <= size - 1; j++) {
         int neighbors = getNumberOfNeighbors(i, j, size, boardState);
         if (neighbors < 2 || neighbors > 3) {
-          // Always is false
           newBoardState[i][j] = false;
         } else if (neighbors == 3) {
-          // Always is true
           newBoardState[i][j] = true;
           aliveNumber++;
         } else {

@@ -1,6 +1,6 @@
-package igmun.ramiro.gameoflife.panels;
+package igmun.ramiro.gameoflife.view;
 
-import igmun.ramiro.gameoflife.boards.Board;
+import igmun.ramiro.gameoflife.model.Board;
 
 import java.awt.Color;
 import java.awt.Dimension;

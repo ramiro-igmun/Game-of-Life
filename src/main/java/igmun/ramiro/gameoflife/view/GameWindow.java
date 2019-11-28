@@ -1,8 +1,7 @@
-package igmun.ramiro.gameoflife.windows;
+package igmun.ramiro.gameoflife.view;
 
-import igmun.ramiro.gameoflife.boards.Board;
-import igmun.ramiro.gameoflife.panels.Panel;
-import igmun.ramiro.gameoflife.controllers.Controller;
+import igmun.ramiro.gameoflife.model.Board;
+import igmun.ramiro.gameoflife.controller.Controller;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -82,7 +81,7 @@ public class GameWindow {
       new SwingWorker<>() {
         @Override
         protected Void doInBackground() throws Exception {
-          board.setGenerationNumber(0);
+          board.setGenerationsPassed(0);
           controller.start();
           return null;
         }

@@ -1,8 +1,8 @@
-package igmun.ramiro.gameoflife.controllers;
+package igmun.ramiro.gameoflife.controller;
 
-import igmun.ramiro.gameoflife.Generation;
-import igmun.ramiro.gameoflife.boards.Board;
-import igmun.ramiro.gameoflife.windows.GameWindow;
+import igmun.ramiro.gameoflife.model.Evolution;
+import igmun.ramiro.gameoflife.model.Board;
+import igmun.ramiro.gameoflife.view.GameWindow;
 import lombok.Data;
 
 import javax.swing.*;
@@ -29,12 +29,12 @@ public class Controller {
     This method contains the program flow
     */
     public void start() {
-        Generation generation = new Generation();
+        Evolution evolution = new Evolution();
 
         setInitialParameters();
 
         for (int i = 0; i < generationsNumber; i++) {
-            generation.evolve(board);
+            evolution.evolve(board);
             //We queue the View update in the Event Dispatcher Thread.
             SwingUtilities.invokeLater(() -> window.updateState());
             try {

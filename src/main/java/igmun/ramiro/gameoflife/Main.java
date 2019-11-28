@@ -1,8 +1,8 @@
 package igmun.ramiro.gameoflife;
 
-import igmun.ramiro.gameoflife.boards.Board;
-import igmun.ramiro.gameoflife.controllers.Controller;
-import igmun.ramiro.gameoflife.windows.GameWindow;
+import igmun.ramiro.gameoflife.model.Board;
+import igmun.ramiro.gameoflife.controller.Controller;
+import igmun.ramiro.gameoflife.view.GameWindow;
 
 import javax.swing.SwingUtilities;
 
