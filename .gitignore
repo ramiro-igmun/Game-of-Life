@@ -3,3 +3,6 @@ target/
 
 \.idea/
 /GameOfLife.iml
+/src/main/resources/META-INF/
+/out/
+/src/main/resources/

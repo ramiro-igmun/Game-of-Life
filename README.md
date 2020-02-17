@@ -12,5 +12,5 @@ algorithm.
 The View is represented by the GameWindow class, which is a GUI made with
 Java Swing.
 
-The Controller is represented by the class Controller, which controlls
+The Controller is represented by the class Controller, which controls
 the GameWindow and the Model(Board-Generations). 

@@ -14,6 +14,8 @@ public class Evolution {
     Boolean[][] boardState = board.getBoardState();
     Boolean[][] newBoardState = new Boolean[size][size];
 
+
+
     for (int row = 0; row <= size - 1; row++) {
       for (int column = 0; column <= size - 1; column++) {
         int neighbors = getNumberOfNeighbors(row, column, size, boardState);
@@ -34,9 +36,9 @@ public class Evolution {
   }
 
   /*
-  This method returns the number of living neighbors for each cell in the board.
-  It iterates through the sub-matrix of the eight neighbors around the given cell
-   */
+  * This method returns the number of living neighbors for each cell in the board.
+  * It iterates through the sub-matrix of the eight neighbors around the given cell
+  */
   private int getNumberOfNeighbors(int row, int column, int size, Boolean[][] boardState) {
     int numberOfNeighbors = 0;
     int correctedRow;

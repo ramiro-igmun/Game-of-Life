@@ -3,11 +3,11 @@ package igmun.ramiro.gameoflife.controller;
 import igmun.ramiro.gameoflife.model.Evolution;
 import igmun.ramiro.gameoflife.model.Board;
 import igmun.ramiro.gameoflife.view.GameWindow;
-import lombok.Data;
 
-import javax.swing.*;
+import javax.swing.SwingUtilities;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-@Data
 public class Controller {
 
   private GameWindow window;
@@ -18,6 +18,10 @@ public class Controller {
     this.board = board;
   }
 
+  public void setWindow(GameWindow window){
+    this.window = window;
+  }
+
   private void setInitialParameters() {
 
     generationsNumber = window.getGenerations();
@@ -25,9 +29,8 @@ public class Controller {
     board.setInitialBoardState(System.currentTimeMillis());
   }
 
-  /*
-  This method contains the program flow
-  */
+
+   //This method contains the program flow
   public void start() {
     Evolution evolution = new Evolution();
 
@@ -40,7 +43,7 @@ public class Controller {
       try {
         Thread.sleep(50);
       } catch (InterruptedException e) {
-        // Do anything like user logger
+        Logger.getLogger(Controller.class.getName()).log(Level.INFO,"Thread sleep interrupted");
       }
     }
 

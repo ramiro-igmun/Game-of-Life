@@ -1,9 +1,12 @@
 package igmun.ramiro.gameoflife.model;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Random;
 
-@Data
+@Getter
+@Setter
 public class Board {
   private Boolean[][] boardState;
   private int boardSize;
