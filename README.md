@@ -14,3 +14,14 @@ Java Swing.
 
 The Controller is represented by the class Controller, which controls
 the GameWindow and the Model(Board-Generations). 
+
+* Running The App:
+
+   You can run the app from the command line after installing Maven on your computer with the following command
+   from the project folder:
+
+   ```
+   mvn exec:java -Dexec.mainClass=igmun.ramiro.gameoflife.Main
+   ```
+
+![alt text](https://github.com/ramiro-igmun/Game-of-Life/blob/master/gameOfLife.gif "Game of Life")
