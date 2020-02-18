@@ -13,8 +13,8 @@ public class Board {
   private int generationsPassed;
   private int aliveNumber;
 
-  public Board() {
-    setBoardSize(100);
+  public Board(int boardSize) {
+    setBoardSize(boardSize);
     setInitialBoardState(System.currentTimeMillis());
   }
   

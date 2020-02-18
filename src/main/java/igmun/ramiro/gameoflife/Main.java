@@ -10,7 +10,7 @@ public class Main {
 
   public static void main(String[] args) {
     
-    Board board = new Board();
+    Board board = new Board(100);
     Controller controller = new Controller(board);
     GameWindow window = new GameWindow(board, controller);
     controller.setWindow(window);

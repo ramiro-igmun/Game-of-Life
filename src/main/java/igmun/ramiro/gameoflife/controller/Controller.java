@@ -18,19 +18,7 @@ public class Controller {
     this.board = board;
   }
 
-  public void setWindow(GameWindow window){
-    this.window = window;
-  }
-
-  private void setInitialParameters() {
-
-    generationsNumber = window.getGenerations();
-    board.setBoardSize(window.getSize());
-    board.setInitialBoardState(System.currentTimeMillis());
-  }
-
-
-   //This method contains the program flow
+  //This method contains the program flow
   public void start() {
     Evolution evolution = new Evolution();
 
@@ -47,6 +35,17 @@ public class Controller {
       }
     }
 
+  }
+
+  private void setInitialParameters() {
+
+    generationsNumber = window.getGenerations();
+    board.setBoardSize(window.getSize());
+    board.setInitialBoardState(System.currentTimeMillis());
+  }
+
+  public void setWindow(GameWindow window){
+    this.window = window;
   }
 
 }
